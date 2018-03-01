@@ -3,9 +3,9 @@ server:
 spring:
   datasource:
     name: test
-    url: jdbc:mysql://121.43.233.145:3306/boottest?useUnicode=true&amp&characterEncoding=UTF-8
-    username: cbkj
-    password: cbkjadministrator2017
+    url: jdbc:mysql://127.0.0.1:3306/boottest?useUnicode=true&amp&characterEncoding=UTF-8
+    username: root
+    password: root
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
@@ -22,7 +22,13 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
-
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/templates/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+  devtools:
+    livereload:
+      enabled: true
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.jueke.entity

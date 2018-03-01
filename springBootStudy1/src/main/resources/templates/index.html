@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/index.css}" />
+    <script th:src="@{/js/jquery/jquery-1.9.1.min.js}"></script>
+    <script src="/js/index.js" th:src="@{/js/index.js}"></script>
+</head>
+<body>
+<a th:href="${host}" >百度</a>
+
+<table border="1">
+    <tr >
+        <td th:text="${host}">Red Chair</td>
+    </tr>
+    <tr th:each="prod,iterStat: ${user}">
+        <td th:text="${prod.name}">Onions</td>
+        <td th:text="${prod.age}">21</td>
+        <td th:text="${prod.sex}">1</td>
+        <td th:text="${prod.job}">1</td>
+        <td th:text="${iterStat.index }">1</td>
+    </tr>
+</table>
+<img th:src="@{/images/1.jpg}" />
+<img src="/images/1.jpg" style="width:100px;height:100px;"/>
+<div th:if="${not #lists.isEmpty(address)}">nihao</div>
+<div th:unless="${not #lists.isEmpty(address)}">nihao</div>
+<div th:unless="${#lists.isEmpty(user)}">user不是空</div>
+</body>
+</html>

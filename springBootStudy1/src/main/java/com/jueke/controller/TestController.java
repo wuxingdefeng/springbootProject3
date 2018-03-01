@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class TestController {
-    @RequestMapping("/")
+    @RequestMapping("/ttttt")
     public String index(){
         return "你好23饿33";
     }
