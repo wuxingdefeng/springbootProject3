@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 文件输出格式 -->
+    <property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+    <!-- dev文件路径 -->
+    <property name="DEV_FILE_PATH" value="D:/logs/dev"/>
+    <!-- prod文件路径 -->
+    <property name="PROD_FILE_PATH" value="D:/logs/prod"/>
+
+    <!-- 开发环境 -->
+    <!--<springProfile name="dev">
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${PATTERN}</pattern>
+            </encoder>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>-->
+
+    <!-- 开发环境 -->
+    <springProfile name="dev">
+
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${PATTERN}</pattern>
+            </encoder>
+        </appender>
+
+        <!-- ch.qos.logback.core.rolling.RollingFileAppender 文件日志输出 -->
+        <appender name="TEST-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <!--不能有这项配置！！！！！-->
+            <!--<Encoding>UTF-8</Encoding>-->
+            <File>${DEV_FILE_PATH}/guide.log</File>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <FileNamePattern>${DEV_FILE_PATH}/guide.%d{yyyy-MM-dd}-%i.log</FileNamePattern>
+                <MaxHistory>30</MaxHistory>
+                <TimeBasedFileNamingAndTriggeringPolicy
+                        class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                    <MaxFileSize>20MB</MaxFileSize>
+                </TimeBasedFileNamingAndTriggeringPolicy>
+            </rollingPolicy>
+
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="STDOUT"/>
+            <appender-ref ref="TEST-FILE"/>
+        </root>
+    </springProfile>
+
+    <!-- 生产环境 -->
+    <springProfile name="prod">
+        <!-- ch.qos.logback.core.rolling.RollingFileAppender 文件日志输出 -->
+        <appender name="PROD_FILE"
+                  class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <!--<Encoding>UTF-8</Encoding>-->
+            <File>${PROD_FILE_PATH}/guide.log</File>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <FileNamePattern>${PROD_FILE_PATH}/guide.%d{yyyy-MM-dd}-%i.log</FileNamePattern>
+                <MaxHistory>30</MaxHistory>
+                <TimeBasedFileNamingAndTriggeringPolicy
+                        class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                    <MaxFileSize>50MB</MaxFileSize>
+                </TimeBasedFileNamingAndTriggeringPolicy>
+            </rollingPolicy>
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="PROD_FILE"/>
+        </root>
+    </springProfile>
+</configuration>

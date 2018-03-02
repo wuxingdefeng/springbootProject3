@@ -1,5 +1,6 @@
 package com.jueke.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,8 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class TestController {
+    Logger logger = Logger.getLogger(this.getClass());
     @RequestMapping("/ttttt")
-    public String index(){
+    public String index(String tt,String ttt){
+
+        logger.info("测试日志测试日志测试日志测试日志"+tt);
         return "你好23饿33";
     }
+
 }

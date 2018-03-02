@@ -16,14 +16,17 @@ public class HelloController {
     private UsersService usersService;
     @ResponseBody
     @RequestMapping("/hello")
-    public String hello() {
-        return "Hello World";
+    public void hello() {
+
+        System.out.println("抛出空指针");
+        throw new NullPointerException();
+        //return "Hello World";
     }
 
     @RequestMapping("/index")
     public String index(ModelMap map) {
         map.addAttribute("host", "http://baidu.com");
-        map.addAttribute("address", "");
+        map.addAttribute("address", "32234");
         map.addAttribute("user",usersService.findAllUser(0,10));
         return "index";
     }

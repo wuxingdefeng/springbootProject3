@@ -1,34 +1,13 @@
-server:
-  port: 8088
+
 spring:
-  datasource:
-    name: test
-    url: jdbc:mysql://127.0.0.1:3306/boottest?useUnicode=true&amp&characterEncoding=UTF-8
-    username: root
-    password: root
-    # 使用druid数据源
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.jdbc.Driver
-    filters: stat
-    maxActive: 20
-    initialSize: 1
-    maxWait: 60000
-    minIdle: 1
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: select 'x'
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    maxOpenPreparedStatements: 20
   mvc:
     static-path-pattern: /**
   resources:
     static-locations: classpath:/templates/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
-  devtools:
-    livereload:
-      enabled: true
+  profiles:
+    active: dev
+  aop:
+    proxy-target-class: true
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.jueke.entity
@@ -38,3 +17,8 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
+logging:
+  config: classpath:logback-spring.xml
+###定义项目名称
+server:
+  context-path: /boot
