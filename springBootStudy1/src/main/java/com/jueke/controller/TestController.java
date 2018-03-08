@@ -12,6 +12,7 @@ public class TestController {
     Logger logger = Logger.getLogger(this.getClass());
     @RequestMapping("/ttttt")
     public String index(String tt,String ttt){
+        float t = 12.2f;
 
         logger.info("测试日志测试日志测试日志测试日志"+tt);
         return "你好23饿33";
