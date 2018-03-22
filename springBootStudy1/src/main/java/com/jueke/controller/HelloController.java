@@ -1,6 +1,7 @@
 package com.jueke.controller;
 
 import com.jueke.expection.BusinessException;
+import com.jueke.rabbit.HelloSender;
 import com.jueke.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +16,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HelloController {
     @Autowired
     private UsersService usersService;
-
+    @Autowired
+    private HelloSender helloSender;
+    @ResponseBody
     @RequestMapping("/hello")
     public String hello() throws Exception{
-
-        System.out.println("抛出空指针");
-        throw new NullPointerException("空指针");
+        helloSender.send("hello发送了22");
+        return "发送成功";
+        //System.out.println("抛出空指针");
+       // throw new NullPointerException("空指针");
         //return "Hello World";
     }
     @RequestMapping("/json")
