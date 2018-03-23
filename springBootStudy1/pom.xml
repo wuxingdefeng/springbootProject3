@@ -134,7 +134,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<fork>true</fork> //这个是必须的
+					<fork>true</fork>
 				</configuration>
 			</plugin>
 			<!-- mybatis generator 自动生成代码插件 -->
