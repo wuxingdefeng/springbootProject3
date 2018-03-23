@@ -14,5 +14,6 @@ public class HelloReceiver {
     @RabbitHandler
     public void process(String order){
         System.out.println("单对单接受参数："+order);
+        System.out.println("sdsd");
     }
 }
