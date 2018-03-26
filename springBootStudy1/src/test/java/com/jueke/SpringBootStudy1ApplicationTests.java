@@ -2,8 +2,7 @@ package com.jueke;
 
 import com.jueke.entity.USERS;
 import com.jueke.rabbit.HelloSender;
-import com.jueke.rabbit.many.NeoSender;
-import com.jueke.rabbit.many.NeoSender2;
+import com.jueke.rabbit.fanout.FanoutSender;
 import com.jueke.rabbit.object.ObjectSender;
 import com.jueke.rabbit.topic.TopicSender;
 import org.junit.Test;
@@ -17,20 +16,23 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SpringBootStudy1ApplicationTests {
 	@Autowired
 	private HelloSender helloSender;
-	@Autowired
+	/*@Autowired
 	private NeoSender neoSender;
 	@Autowired
-	private NeoSender2 neoSender2;
+	private NeoSender2 neoSender2;*/
 	@Autowired
 	private ObjectSender objectSender;
 	@Autowired
 	private TopicSender topicSender;
+
+	@Autowired
+	private FanoutSender fanoutSender;
 	@Test
 	public void contextLoads() {
 		helloSender.sendHello("你好");
 	}
 
-	@Test
+/*	@Test
 	public void oneToMany(){
 		for(int i=0;i<100;i++){
 			neoSender.send(i);
@@ -42,7 +44,7 @@ public class SpringBootStudy1ApplicationTests {
 			neoSender.send(i);
 			neoSender2.send(i);
 		}
-	}
+	}*/
 
 	@Test
 	public void objectSend(){
@@ -64,6 +66,11 @@ public class SpringBootStudy1ApplicationTests {
 	}@Test
 	public void topicSend2() throws Exception{
 		topicSender.send2();
+	}
+
+	@Test
+	public void fanoutSender() throws Exception {
+		fanoutSender.send();
 	}
 
 }
