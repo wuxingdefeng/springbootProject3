@@ -5,6 +5,7 @@ import com.jueke.rabbit.HelloSender;
 import com.jueke.rabbit.many.NeoSender;
 import com.jueke.rabbit.many.NeoSender2;
 import com.jueke.rabbit.object.ObjectSender;
+import com.jueke.rabbit.topic.TopicSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ public class SpringBootStudy1ApplicationTests {
 	private NeoSender2 neoSender2;
 	@Autowired
 	private ObjectSender objectSender;
+	@Autowired
+	private TopicSender topicSender;
 	@Test
 	public void contextLoads() {
 		helloSender.sendHello("你好");
@@ -50,4 +53,17 @@ public class SpringBootStudy1ApplicationTests {
 		users.setUserId("34sdffsafasdfadf");
 		objectSender.send(users);
 	}
+
+	@Test
+	public void topicSend() throws Exception{
+		topicSender.send();
+	}
+	@Test
+	public void topicSend1() throws Exception{
+		topicSender.send1();
+	}@Test
+	public void topicSend2() throws Exception{
+		topicSender.send2();
+	}
+
 }

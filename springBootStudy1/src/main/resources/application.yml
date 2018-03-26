@@ -13,6 +13,8 @@ spring:
     port: 5672
     username: guest
     password: guest
+    publisher-confirms: true
+    virtual-host: /
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.jueke.entity
