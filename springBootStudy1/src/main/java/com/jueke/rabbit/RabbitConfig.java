@@ -23,6 +23,7 @@ public class RabbitConfig {
     public Queue objectQueue(){
         return new Queue("object");
     }
+    /**topic start**/
     @Bean
     public Queue queueMessage(){
         return new Queue(RabbitConfig.message);
@@ -44,4 +45,5 @@ public class RabbitConfig {
     Binding bindingExchangeMessages(Queue queueMessages,TopicExchange exchange){
         return BindingBuilder.bind(queueMessages).to(exchange).with("topic.#");
     }
+    /**topic end**/
 }
