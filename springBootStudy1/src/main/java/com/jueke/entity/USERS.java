@@ -1,6 +1,8 @@
 package com.jueke.entity;
 
-public class USERS {
+import java.io.Serializable;
+
+public class USERS implements Serializable{
     private String userId;
 
     private String name;
@@ -49,5 +51,16 @@ public class USERS {
 
     public void setJob(String job) {
         this.job = job == null ? null : job.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "USERS{" +
+                "userId='" + userId + '\'' +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                ", job='" + job + '\'' +
+                '}';
     }
 }
