@@ -3,6 +3,7 @@ package com.jueke;
 import com.jueke.entity.USERS;
 import com.jueke.rabbit.HelloSender;
 import com.jueke.rabbit.fanout.FanoutSender;
+import com.jueke.rabbit.helloQueue.HelloQueueSender;
 import com.jueke.rabbit.many.NeoSender;
 import com.jueke.rabbit.many.NeoSender2;
 import com.jueke.rabbit.object.ObjectSender;
@@ -29,6 +30,9 @@ public class SpringBootStudy1ApplicationTests {
 
 	@Autowired
 	private FanoutSender fanoutSender;
+	@Autowired
+	private HelloQueueSender helloQueueSender;
+
 	@Test
 	public void contextLoads() {
 		helloSender.sendHello("你好");
@@ -75,4 +79,8 @@ public class SpringBootStudy1ApplicationTests {
 		fanoutSender.send();
 	}
 
+	@Test
+	public void helloQueueSend(){
+		helloQueueSender.sendString();
+	}
 }
