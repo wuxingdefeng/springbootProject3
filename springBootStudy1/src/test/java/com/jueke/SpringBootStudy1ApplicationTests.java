@@ -1,23 +1,13 @@
 package com.jueke;
 
-import com.jueke.entity.USERS;
-import com.jueke.rabbit.HelloSender;
-import com.jueke.rabbit.fanout.FanoutSender;
-import com.jueke.rabbit.helloQueue.HelloQueueSender;
-import com.jueke.rabbit.many.NeoSender;
-import com.jueke.rabbit.many.NeoSender2;
-import com.jueke.rabbit.object.ObjectSender;
-import com.jueke.rabbit.topic.TopicSender;
-import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringBootStudy1ApplicationTests {
-	@Autowired
+	/*@Autowired
 	private HelloSender helloSender;
 	@Autowired
 	private NeoSender neoSender;
@@ -82,5 +72,5 @@ public class SpringBootStudy1ApplicationTests {
 	@Test
 	public void helloQueueSend(){
 		helloQueueSender.sendString();
-	}
+	}*/
 }
