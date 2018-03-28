@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
  * Created by Administrator on 2018/3/23.
  */
 @Component
-@RabbitListener(queues = "object")
 public class ObjectReceiver {
 
 
     @RabbitHandler
+    @RabbitListener(queues = "object")
     public void process(USERS users){
         System.out.println("Receiver object : " + users);
     }
