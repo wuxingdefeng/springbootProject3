@@ -8,13 +8,13 @@ spring:
     active: dev
   aop:
     proxy-target-class: true
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: guest
-    password: guest
-    publisher-confirms: true
-    virtual-host: /
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: guest
+#    password: guest
+#    publisher-confirms: true
+#    virtual-host: /
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.jueke.entity
