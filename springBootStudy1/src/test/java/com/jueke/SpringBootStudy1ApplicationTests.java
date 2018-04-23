@@ -12,7 +12,7 @@ public class SpringBootStudy1ApplicationTests {
 	@Autowired
 	private NeoSender neoSender;
 	@Autowired
-	private NeoSender2 neoSender2;
+	private NeoSender2 neoSender2;H
 	@Autowired
 	private ObjectSender objectSender;
 	@Autowired
