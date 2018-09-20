@@ -28,9 +28,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="springbootProject" target="1.5" />
       <module name="springbootstudy1" target="1.8" />
-      <module name="springBootStudy1" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

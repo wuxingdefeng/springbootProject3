@@ -90,10 +90,11 @@
       job = #{job,jdbcType=VARCHAR}
     where user_id = #{userId,jdbcType=VARCHAR}
   </update>
+
   <!--查找所有用户 -->
   <select id="selectAllUser" resultMap="BaseResultMap">
   select 
-  <include refid="Base_Column_List"/>
+  <include refid="Base_Column_List" />
     from users
   </select>
 </mapper>

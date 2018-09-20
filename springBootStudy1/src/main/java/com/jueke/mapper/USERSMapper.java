@@ -4,6 +4,7 @@ import com.jueke.entity.USERS;
 
 import java.util.List;
 
+
 public interface USERSMapper {
     int deleteByPrimaryKey(String userId);
 
@@ -16,6 +17,5 @@ public interface USERSMapper {
     int updateByPrimaryKeySelective(USERS record);
 
     int updateByPrimaryKey(USERS record);
-
     List<USERS> selectAllUser();
 }
